@@ -33,9 +33,7 @@
       "test"
     ]
   },
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
     "nuxt-module-builder": "latest"
   }
