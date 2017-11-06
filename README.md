@@ -1,23 +1,35 @@
 # nuxt-facebook-pixel-module
+
 [![npm (scoped with tag)](https://img.shields.io/npm/v/nuxt-facebook-pixel-module/latest.svg?style=flat-square)](https://npmjs.com/package/nuxt-facebook-pixel-module)
 [![npm](https://img.shields.io/npm/dt/nuxt-facebook-pixel-module.svg?style=flat-square)](https://npmjs.com/package/nuxt-facebook-pixel-module)
-[![CircleCI](https://img.shields.io/circleci/project/github/.svg?style=flat-square)](https://circleci.com/gh/)
-[![Codecov](https://img.shields.io/codecov/c/github/.svg?style=flat-square)](https://codecov.io/gh/)
-[![Dependencies](https://david-dm.org//status.svg?style=flat-square)](https://david-dm.org/)
 [![js-standard-style](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com)
 
-> 
+> A NuxtJS module thats injects Facebook Pixel code
 
-[📖 **Release Notes**](./CHANGELOG.md)
+## Table of Contents ##
 
-## Features
+* [Requirements](#requirements)
+* [Install](#install)
+* [Getting Started](#getting-started)
+* [License](#license)
 
-The module features
+## Requirements
 
-## Setup
-- Add `nuxt-facebook-pixel-module` dependency using yarn or npm to your project
-- Add `nuxt-facebook-pixel-module` to `modules` section of `nuxt.config.js`
+* npm or yarn
+* NuxtJS
+* NodeJS
 
+## Install
+
+```bash
+$ npm install --save nuxt-facebook-pixel-module
+// or
+$ yarn add nuxt-facebook-pixel-module
+```
+
+## Getting Started
+
+Add `nuxt-facebook-pixel-module` to `modules` section of `nuxt.config.js`.
 ```js
 {
   modules: [
@@ -25,17 +37,29 @@ The module features
     'nuxt-facebook-pixel-module',
 
     // With options
-    ['nuxt-facebook-pixel-module', { /* module options */ }],
+    ['nuxt-facebook-pixel-module', {
+      /* module options */
+      track: 'PageView',
+      pixelId: 'FACEBOOK_PIXEL_ID',
+    }],
  ]
 }
 ```
+or even
+```js
+{
+  modules: [
+    'nuxt-facebook-pixel-module',
+  ],
+  facebook: {
+    /* module options */
+    track: 'PageView',
+    pixelId: 'FACEBOOK_PIXEL_ID',
+  },
+}
+```
 
-## Usage
-
-Module Description
 
 ## License
 
 [MIT License](./LICENSE)
-
-Copyright (c) WilliamDASILVA <william.da.silva@outlook.com>
