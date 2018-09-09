@@ -41,6 +41,7 @@ Add `nuxt-facebook-pixel-module` to `modules` section of `nuxt.config.js`.
       /* module options */
       track: 'PageView',
       pixelId: 'FACEBOOK_PIXEL_ID',
+      disabled: false
     }],
  ]
 }
@@ -55,10 +56,54 @@ or even
     /* module options */
     track: 'PageView',
     pixelId: 'FACEBOOK_PIXEL_ID',
+    disabled: false
   },
 }
 ```
 
+## Disabling the pixel (for GDPR)
+
+If you'd like to install the pixel disabled, and enable it later after the user has consented to its use, you can do so by setting `disabled: true` in the pixel configuration:
+
+```js
+{
+  modules: [
+    'nuxt-facebook-pixel-module',
+  ],
+  facebook: {
+    ...
+    disabled: true
+  },
+}
+```
+
+Now, in your component, you can call the following in order to start the pixel and track the current page.
+
+```js
+this.$fb.enable()
+```
+
+## Module options
+
+List of possible options in the module:
+
+| Option   | Default  | Required | Description                                                                               |
+|----------|----------|----------|-------------------------------------------------------------------------------------------|
+| pixelId  | null     | true     | The unique pixel identifier provided by Facebook.                                         |
+| track    | PageView | false    | Default tracking event.                                                                   |
+| version  | 2.0      | false    | Tracking version.                                                                         |
+| disabled | false    | false    | Disable the Pixel by default when initialized. Can be enabled later through `$fb.enable()`.
+
+## Facebook pixel instance
+
+The tracking pixel instance is available on all vue component instances as $fb. It has the following methods:
+
+| Method            | Purpose                                                                                                  | Equivalent to                  |
+|-------------------|----------------------------------------------------------------------------------------------------------|--------------------------------|
+| enable()          | If you had previously set `disabled: true` in config, enables the pixel and tracks the current page view | $fb.init(), $fb.track()        |
+| init()            | Initialises the pixel                                                                                    | fbq('init', <options.pixelId>) |
+| track()           | Sends a track event                                                                                      | fbq('track', <options.track>)  |
+| query(key, value) | Call the underlying fbq instance with anything else                                                      | fbq(key, value)                |
 
 ## License
 
