@@ -83,6 +83,17 @@ Now, in your component, you can call the following in order to start the pixel a
 this.$fb.enable()
 ```
 
+## Module options
+
+List of possible options in the module:
+
+| Option   | Default  | Required | Description                                                                               |
+|----------|----------|----------|-------------------------------------------------------------------------------------------|
+| pixelId  | null     | true     | The unique pixel identifier provided by Facebook.                                         |
+| track    | PageView | false    | Default tracking event.                                                                   |
+| version  | 2.0      | false    | Tracking version.                                                                         |
+| disabled | false    | false    | Disable the Pixel by default when initialized. Can be enabled later through `$fb.enable()`.
+
 ## Facebook pixel instance
 
 The tracking pixel instance is available on all vue component instances as $fb. It has the following methods:

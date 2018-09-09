@@ -5,7 +5,7 @@
   "license": "MIT",
   "contributors": [
     {
-      "name": "WilliamDASILVA <william.da.silva@outlook.com>"
+      "name": "William DA SILVA <william.da.silva@outlook.com>"
     },
     {
       "name": "Antony Jones <antony@beyonk.com>"
@@ -19,7 +19,7 @@
   "scripts": {
     "lint": "eslint lib test",
     "test": "npm run lint && jest",
-    "release": "standard-version && git push --follow-tags && npm publish"
+    "release": "standard-version && git push --follow-tags"
   },
   "eslintIgnore": [
     "lib/templates/*.*"
