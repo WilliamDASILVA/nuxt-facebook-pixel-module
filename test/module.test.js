@@ -14,9 +14,9 @@ describe('Module', () => {
   let nuxt
 
   beforeAll(async () => {
-    config.modules.unshift(function () {
-      // Add test specific test only hooks on nuxt life cycle
-    })
+    // config.modules.unshift(function () {
+    //   // Add test specific test only hooks on nuxt life cycle
+    // })
 
     // Build a fresh nuxt
     nuxt = new Nuxt(config)
