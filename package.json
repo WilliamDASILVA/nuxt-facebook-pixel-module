@@ -9,6 +9,9 @@
     },
     {
       "name": "Antony Jones <antony@beyonk.com>"
+    },
+    {
+      "name": "David Tabachnikov"
     }
   ],
   "main": "lib/module.js",
