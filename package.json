@@ -1,6 +1,6 @@
 {
   "name": "nuxt-facebook-pixel-module",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Nuxt plugin for Facebook pixel",
   "license": "MIT",
   "contributors": [
@@ -9,6 +9,9 @@
     },
     {
       "name": "Antony Jones <antony@beyonk.com>"
+    },
+    {
+      "name": "David Tabachnikov"
     }
   ],
   "main": "lib/module.js",
@@ -19,7 +22,7 @@
   "scripts": {
     "dev": "nuxt test/fixture",
     "lint": "eslint lib test",
-    "test": "npm run lint && jest",
+    "test": "jest",
     "release": "standard-version && git push --follow-tags"
   },
   "eslintIgnore": [
@@ -39,7 +42,6 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "nuxt": "latest",
     "codecov": "latest",
     "eslint": "latest",
     "eslint-config-standard": "latest",
@@ -51,6 +53,8 @@
     "eslint-plugin-vue": "latest",
     "jest": "latest",
     "jsdom": "latest",
-    "standard-version": "latest"
+    "nuxt": "^2.3.4",
+    "standard-version": "latest",
+    "webpack": "^4.27.1"
   }
 }
