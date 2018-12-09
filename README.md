@@ -7,7 +7,7 @@
 
 > A NuxtJS module thats injects Facebook Pixel code
 
-## Table of Contents ##
+## Table of Contents
 
 * [Requirements](#requirements)
 * [Install](#install)
@@ -31,6 +31,7 @@ $ yarn add nuxt-facebook-pixel-module
 ## Getting Started
 
 Add `nuxt-facebook-pixel-module` to `modules` section of `nuxt.config.js`.
+
 ```js
 {
   modules: [
@@ -47,7 +48,9 @@ Add `nuxt-facebook-pixel-module` to `modules` section of `nuxt.config.js`.
  ]
 }
 ```
+
 or even
+
 ```js
 {
   modules: [
