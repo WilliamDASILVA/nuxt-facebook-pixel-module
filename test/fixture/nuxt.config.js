@@ -11,5 +11,14 @@ module.exports = {
     ['@@', {
       pixelId: 'PIXEL_CODE'
     }]
-  ]
+  ],
+  babel: {
+    presets: [
+      'es2015',
+      'stage-0'
+    ],
+    plugins: [
+      'transform-runtime'
+    ]
+  }
 }
