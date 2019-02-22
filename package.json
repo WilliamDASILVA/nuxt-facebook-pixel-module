@@ -42,6 +42,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
     "codecov": "latest",
     "eslint": "^5.14.1",
     "eslint-config-standard": "latest",
