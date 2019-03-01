@@ -106,8 +106,8 @@ The tracking pixel instance is available on all vue component instances as $fb. 
 |-------------------|----------------------------------------------------------------------------------------------------------|--------------------------------|
 | enable()          | If you had previously set `disabled: true` in config, enables the pixel and tracks the current page view | $fb.init(), $fb.track()        |
 | init()            | Initialises the pixel                                                                                    | fbq('init', <options.pixelId>) |
-| track()           | Sends a track event                                                                                      | fbq('track', <options.track>)  |
-| query(key, value) | Call the underlying fbq instance with anything else                                                      | fbq(key, value)                |
+| track(event)           | Sends a track event. It's `PageView` by default if the `event` is not defined.                                                                                      | fbq('track', <options.track>)  |
+| query(key, value, parameters) | Call the underlying fbq instance with anything else. The `parameters` attribute is optional.                                                      | fbq(key, value, parameters)                |
 
 ## License
 
