@@ -87,6 +87,8 @@ Now, in your component, you can call the following in order to start the pixel a
 this.$fb.enable()
 ```
 
+The pixel can be disabled again later on by using the `.disable()` method.
+
 ## Module options
 
 List of possible options in the module:
@@ -96,7 +98,7 @@ List of possible options in the module:
 | pixelId  | null     | true     | The unique pixel identifier provided by Facebook.                                         |
 | track    | PageView | false    | Default tracking event.                                                                   |
 | version  | 2.0      | false    | Tracking version.                                                                         |
-| disabled | false    | false    | Disable the Pixel by default when initialized. Can be enabled later through `$fb.enable()`.
+| disabled | false    | false    | Disable the Pixel by default when initialized. Can be enabled later through `$fb.enable()` and disabled again with `$fb.disable()`.
 
 ## Facebook pixel instance
 
@@ -105,6 +107,7 @@ The tracking pixel instance is available on all vue component instances as $fb. 
 | Method            | Purpose                                                                                                  | Equivalent to                  |
 |-------------------|----------------------------------------------------------------------------------------------------------|--------------------------------|
 | enable()          | If you had previously set `disabled: true` in config, enables the pixel and tracks the current page view | $fb.init(), $fb.track()        |
+| disable()          | Disables the pixel again |         |
 | init()            | Initialises the pixel                                                                                    | fbq('init', <options.pixelId>) |
 | track(event, parameters)           | Sends a track event with optional `parameters`. It's `PageView` by default if the `event` is not defined.                                                                                      | fbq('track', <options.track>, parameters)  |
 | query(key, value, parameters) | Call the underlying fbq instance with anything else. The `parameters` attribute is optional.                                                      | fbq(key, value, parameters)                |
