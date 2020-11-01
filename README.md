@@ -118,6 +118,7 @@ List of possible options in the module:
 | track    | PageView | false    | Default tracking event.                                                                   |
 | version  | 2.0      | false    | Tracking version.                                                                         |
 | disabled | false    | false    | Disable the Pixel by default when initialized. Can be enabled later through `$fb.enable()` and disabled again with `$fb.disable()`.
+| manualMode | false    | false    | By default, Facebook will trigger button click and page metadata. Set to `true` to disable this behaviour. [See more informations](https://developers.facebook.com/docs/facebook-pixel/advanced/#automatic-configuration)
 | autoPageView | false    | false    | If set to `true`, automatically triggers a `PageView` track event on every page change.
 
 ## Facebook pixel instance
