@@ -43,6 +43,7 @@ Add `nuxt-facebook-pixel-module` to `modules` section of `nuxt.config.js`.
       /* module options */
       track: 'PageView',
       pixelId: 'FACEBOOK_PIXEL_ID',
+      autoPageView: true,
       disabled: false
     }],
  ]
@@ -60,7 +61,25 @@ or even
     /* module options */
     track: 'PageView',
     pixelId: 'FACEBOOK_PIXEL_ID',
+    autoPageView: true,
     disabled: false
+  },
+}
+```
+
+## Automatically track PageView
+
+By default, the module won't trigger any tracking event on route change. To enable this behaviour, you must specify the `autoPageView` option and set to `true` in the Nuxt module options.
+
+```js
+{
+  modules: [
+    'nuxt-facebook-pixel-module',
+  ],
+  facebook: {
+    /* module options */
+    pixelId: 'FACEBOOK_PIXEL_ID',
+    autoPageView: true
   },
 }
 ```
@@ -87,6 +106,37 @@ Now, in your component, you can call the following in order to start the pixel a
 this.$fb.enable()
 ```
 
+The pixel can be disabled again later on by using the `.disable()` method.
+
+## Multiple pixel codes according to route
+
+It's possible to use multiple pixel codes according to the user's route. This can be made through the `pixels` property.
+The `pixels` property expects an array of options.
+
+```js
+{
+  modules: [
+    'nuxt-facebook-pixel-module',
+  ],
+  facebook: {
+    pixelId: 'DEFAULT_PIXEL_ID',
+    pixels: [
+      {
+        pixelId: 'FACEBOOK_PIXEL_ID',
+        routes: [
+          '/my-custom-route',
+          '/hello/*'
+        ]
+      }
+    ]
+  },
+}
+```
+
+Per this example, whenever the user is on the `/my-custom-route`, it will use the `FACEBOOK_PIXEL_ID` instead of the `DEFAULT_PIXEL_ID`. For all the other routes, it will use the default one.
+
+Note : Since the `pixels` property is an array of options, any other valid option (`track`, `manualMode`, ...) can be passed.
+
 ## Module options
 
 List of possible options in the module:
@@ -96,7 +146,10 @@ List of possible options in the module:
 | pixelId  | null     | true     | The unique pixel identifier provided by Facebook.                                         |
 | track    | PageView | false    | Default tracking event.                                                                   |
 | version  | 2.0      | false    | Tracking version.                                                                         |
-| disabled | false    | false    | Disable the Pixel by default when initialized. Can be enabled later through `$fb.enable()`.
+| disabled | false    | false    | Disable the Pixel by default when initialized. Can be enabled later through `$fb.enable()` and disabled again with `$fb.disable()`.
+| manualMode | false    | false    | By default, Facebook will trigger button click and page metadata. Set to `true` to disable this behaviour. [See more informations](https://developers.facebook.com/docs/facebook-pixel/advanced/#automatic-configuration)
+| autoPageView | false    | false    | If set to `true`, automatically triggers a `PageView` track event on every page change.
+| pixels | []    | false    | An array of pixels be used according to a specific set of routes. See [Multiple pixel codes according to route](#multiple-pixel-codes-according-to-route)
 
 ## Facebook pixel instance
 
@@ -105,6 +158,8 @@ The tracking pixel instance is available on all vue component instances as $fb. 
 | Method            | Purpose                                                                                                  | Equivalent to                  |
 |-------------------|----------------------------------------------------------------------------------------------------------|--------------------------------|
 | enable()          | If you had previously set `disabled: true` in config, enables the pixel and tracks the current page view | $fb.init(), $fb.track()        |
+| disable()          | Disables the pixel again |         |
+| setPixelId()            | Change the default pixelId & trigger an init it                                                                                    | |
 | init()            | Initialises the pixel                                                                                    | fbq('init', <options.pixelId>) |
 | track(event, parameters)           | Sends a track event with optional `parameters`. It's `PageView` by default if the `event` is not defined.                                                                                      | fbq('track', <options.track>, parameters)  |
 | query(key, value, parameters) | Call the underlying fbq instance with anything else. The `parameters` attribute is optional.                                                      | fbq(key, value, parameters)                |
