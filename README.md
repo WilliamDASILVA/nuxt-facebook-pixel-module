@@ -124,7 +124,8 @@ The `pixels` property expects an array of options.
       {
         pixelId: 'FACEBOOK_PIXEL_ID',
         routes: [
-          '/my-custom-route'
+          '/my-custom-route',
+          '/hello/*'
         ]
       }
     ]
@@ -134,9 +135,7 @@ The `pixels` property expects an array of options.
 
 Per this example, whenever the user is on the `/my-custom-route`, it will use the `FACEBOOK_PIXEL_ID` instead of the `DEFAULT_PIXEL_ID`. For all the other routes, it will use the default one.
 
-Note : The `routes` property expects a strict match with the route router route.
-
-Note 2 : Since the `pixels` property is an array of options, any other valid option (`track`, `manualMode`, ...) can be passed.
+Note : Since the `pixels` property is an array of options, any other valid option (`track`, `manualMode`, ...) can be passed.
 
 ## Module options
 
