@@ -43,6 +43,7 @@ Add `nuxt-facebook-pixel-module` to `modules` section of `nuxt.config.js`.
       /* module options */
       track: 'PageView',
       pixelId: 'FACEBOOK_PIXEL_ID',
+      autoPageView: true,
       disabled: false
     }],
  ]
@@ -60,7 +61,25 @@ or even
     /* module options */
     track: 'PageView',
     pixelId: 'FACEBOOK_PIXEL_ID',
+    autoPageView: true,
     disabled: false
+  },
+}
+```
+
+## Automatically track PageView
+
+By default, the module won't trigger any tracking event on route change. To enable this behaviour, you must specify the `autoPageView` option and set to `true` in the Nuxt module options.
+
+```js
+{
+  modules: [
+    'nuxt-facebook-pixel-module',
+  ],
+  facebook: {
+    /* module options */
+    pixelId: 'FACEBOOK_PIXEL_ID',
+    autoPageView: true
   },
 }
 ```
@@ -99,6 +118,7 @@ List of possible options in the module:
 | track    | PageView | false    | Default tracking event.                                                                   |
 | version  | 2.0      | false    | Tracking version.                                                                         |
 | disabled | false    | false    | Disable the Pixel by default when initialized. Can be enabled later through `$fb.enable()` and disabled again with `$fb.disable()`.
+| autoPageView | false    | false    | If set to `true`, automatically triggers a `PageView` track event on every page change.
 
 ## Facebook pixel instance
 
