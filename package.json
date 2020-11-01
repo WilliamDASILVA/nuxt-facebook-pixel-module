@@ -40,7 +40,9 @@
       "test"
     ]
   },
-  "dependencies": {},
+  "dependencies": {
+    "minimatch": "^3.0.4"
+  },
   "devDependencies": {
     "babel-plugin-transform-runtime": "^6.23.0",
     "codecov": "latest",

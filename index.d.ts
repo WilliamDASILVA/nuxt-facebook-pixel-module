@@ -44,6 +44,7 @@ interface FacebookEventParameters {
 interface NuxtFacebookPixel {
     enable(): void;
     init(): void;
+    setPixelId(pixelId: string): void;
     track(event: null | FacebookEvent, parameters?: FacebookEventParameters): void;
     query<T extends object>(key: string, value: string, parameters?: T): void;
 }

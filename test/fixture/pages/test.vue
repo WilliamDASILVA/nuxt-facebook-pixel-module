@@ -6,9 +6,5 @@
 
 <script>
   export default {
-    mounted () {
-      this.$fb.disable()
-      this.$fb.track()
-    }
   }
 </script>
