@@ -43,6 +43,7 @@ interface FacebookEventParameters {
 
 interface NuxtFacebookPixel {
     enable(): void;
+    disable(): void;
     init(): void;
     setPixelId(pixelId: string): void;
     track(event: null | FacebookEvent, parameters?: FacebookEventParameters): void;
