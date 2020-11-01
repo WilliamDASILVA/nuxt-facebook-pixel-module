@@ -56,6 +56,6 @@
     "jsdom": "latest",
     "nuxt": "^2.14.7",
     "standard-version": "^9.0.0",
-    "webpack": "^5.3.2"
+    "webpack": "^4.44.2"
   }
 }
