@@ -137,6 +137,17 @@ Per this example, whenever the user is on the `/my-custom-route`, it will use th
 
 Note : Since the `pixels` property is an array of options, any other valid option (`track`, `manualMode`, ...) can be passed.
 
+# Advanced Matching
+To send custom user data when initializing the FB Pixel you'll have to disable the plugin in your Nuxt config file and enable it once you've set the user data.
+
+Run the following from your Vue component once you've access to the user data:
+```javascript
+this.$fb.setUserData({ external_id: 32323, fn: 'John' })
+this.$fb.enable()
+```
+
+Read more about [Advanced Matching](https://developers.facebook.com/docs/facebook-pixel/advanced/advanced-matching).
+
 ## Module options
 
 List of possible options in the module:
@@ -148,7 +159,7 @@ List of possible options in the module:
 | version  | 2.0      | false    | Tracking version.                                                                         |
 | disabled | false    | false    | Disable the Pixel by default when initialized. Can be enabled later through `$fb.enable()` and disabled again with `$fb.disable()`.
 | debug | false    | false    | By default, tracking in development mode is disabled. By specifying `true`, you manually allow tracking in development mode.
-| manualModef | false    | false    | By default, Facebook will trigger button click and page metadata. Set to `true` to disable this behaviour. [See more informations](https://developers.facebook.com/docs/facebook-pixel/advanced/#automatic-configuration)
+| manualMode | false    | false    | By default, Facebook will trigger button click and page metadata. Set to `true` to disable this behaviour. [See more informations](https://developers.facebook.com/docs/facebook-pixel/advanced/#automatic-configuration)
 | autoPageView | false    | false    | If set to `true`, automatically triggers a `PageView` track event on every page change.
 | pixels | []    | false    | An array of pixels be used according to a specific set of routes. See [Multiple pixel codes according to route](#multiple-pixel-codes-according-to-route)
 
@@ -161,6 +172,7 @@ The tracking pixel instance is available on all vue component instances as $fb. 
 | enable()          | If you had previously set `disabled: true` in config, enables the pixel and tracks the current page view | $fb.init(), $fb.track()        |
 | disable()          | Disables the pixel again |         |
 | setPixelId()            | Change the default pixelId & trigger an init it                                                                                    | |
+| setUserData(userData) | Used to set user data that'll be used once the `fbq` init function is called. See [Advanced Matching](https://developers.facebook.com/docs/facebook-pixel/advanced/advanced-matching). | |
 | init()            | Initialises the pixel                                                                                    | fbq('init', <options.pixelId>) |
 | track(event, parameters)           | Sends a track event with optional `parameters`. It's `PageView` by default if the `event` is not defined.                                                                                      | fbq('track', <options.track>, parameters)  |
 | query(key, value, parameters) | Call the underlying fbq instance with anything else. The `parameters` attribute is optional.                                                      | fbq(key, value, parameters)                |
